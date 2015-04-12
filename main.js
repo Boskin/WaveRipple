@@ -11,8 +11,11 @@ var updateId;
 reset();
 
 function reset() {
+  document.removeEventListener('mousemove');
+  document.removeEventListener('mousedown');
   document.addEventListener('mousemove', helperSineCurve);
   document.addEventListener('mousedown', onClick);
+  window.clearInterval(updateId);
   updateId = window.setInterval(updateLoop, 1000 / 60);
   player = new Player();
   obstacles = [];
